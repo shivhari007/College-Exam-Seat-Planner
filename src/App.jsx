@@ -202,7 +202,9 @@ function App() {
         <section className="card">
           <h2>All Classrooms ({classrooms.length})</h2>
           {classrooms.length === 0 ? (
-            <p className="no-data">No classrooms added yet. Add your first classroom above!</p>
+            <p className="no-data">
+              No classrooms added yet. Add your first classroom above!
+            </p>
           ) : (
             <div className="table-container">
               <table>
@@ -218,12 +220,14 @@ function App() {
                 <tbody>
                   {classrooms
                     .sort((a, b) => a.floorNo - b.floorNo)
-                    .map(room => (
+                    .map((room) => (
                       <tr key={room.roomId}>
-                        <td><strong>{room.roomId}</strong></td>
+                        <td>
+                          <strong>{room.roomId}</strong>
+                        </td>
                         <td>{room.capacity}</td>
                         <td>Floor {room.floorNo}</td>
-                        <td>{room.nearWashroom ? '✓ Yes' : '✗ No'}</td>
+                        <td>{room.nearWashroom ? "✓ Yes" : "✗ No"}</td>
                         <td>
                           <button
                             className="btn btn-delete"
@@ -265,11 +269,7 @@ function App() {
             </button>
           </div>
 
-          {error && (
-            <div className="error-message">
-              ⚠️ {error}
-            </div>
-          )}
+          {error && <div className="error-message">⚠️ {error}</div>}
 
           {allocationResult && (
             <div className="allocation-result">
@@ -277,7 +277,9 @@ function App() {
               <div className="result-summary">
                 <div className="summary-item">
                   <span className="label">Total Students:</span>
-                  <span className="value">{allocationResult.totalStudents}</span>
+                  <span className="value">
+                    {allocationResult.totalStudents}
+                  </span>
                 </div>
                 <div className="summary-item">
                   <span className="label">Rooms Used:</span>
@@ -292,11 +294,16 @@ function App() {
                     <div className="room-number">{index + 1}</div>
                     <div className="room-details">
                       <h5>{room.roomId}</h5>
-                      <p>Floor {room.floorNo} • Capacity: {room.capacity}</p>
-                      <p className="allocated-seats">
-                        <strong>{room.allocatedSeats}</strong> students allocated
+                      <p>
+                        Floor {room.floorNo} • Capacity: {room.capacity}
                       </p>
-                      {room.nearWashroom && <span className="badge">Near Washroom</span>}
+                      <p className="allocated-seats">
+                        <strong>{room.allocatedSeats}</strong> students
+                        allocated
+                      </p>
+                      {room.nearWashroom && (
+                        <span className="badge">Near Washroom</span>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -307,10 +314,10 @@ function App() {
       </div>
 
       <footer>
-        <p>Greedy Algorithm: Prioritizes lower floors for optimal accessibility</p>
+        <p>© 2026 Exam Seat Planning System | College Use Only</p>
       </footer>
     </div>
-  )
+  );
 }
 
 export default App
