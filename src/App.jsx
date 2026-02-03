@@ -305,6 +305,10 @@ function App() {
           )}
         </section>
       </div>
+
+      <footer>
+        <p>Greedy Algorithm: Prioritizes lower floors for optimal accessibility</p>
+      </footer>
     </div>
   )
 }
